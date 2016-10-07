@@ -4,7 +4,7 @@
 
     var postController = function($scope, $http) {
 
-        $http.get(BASE_URL + 'zero/post/getAllPosts')
+        $http.get(BASE_URL + 'post/getAllPosts')
             .then(function(response){
                 $scope.Posts = response.data;
                 //(5*252 + 4*124 + 3*40 + 2*29 + 1*33) / (252+124+40+29+33)
