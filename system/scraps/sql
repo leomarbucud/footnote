@@ -1,0 +1,71 @@
+public function insert($table = '', $data = null)
+	{
+		$query = 'INSERT INTO `'.$table.'`';
+		$fields = array();
+		$values = array();
+		foreach($data as $field => $value)
+		{
+			$fields[] = '`'.$field.'`';
+			$values[] = "'".$value."'";
+		}
+		$query .= '('.implode(',',$fields).') VALUES('.implode(',',$this->escape($values)).')';
+
+		return $this->query($query);
+	}
+	
+	public function select($table, $field = null, $where = null)
+	{
+		if ( ! empty($field) )
+		{
+			foreach($field as $value)
+			{
+				$un_implode_fields[] = '`'.$value.'`';
+			}
+			$fields = implode(',',$un_implode_fields);
+		}
+		else
+		{
+			$fields = '*';
+		}
+		
+		$query = 'SELECT '.$fields.' FROM '.$table;
+		return $this->query($query);
+	}
+	
+	public function select_id($table, $id = null, $value = null)
+	{
+		$query = 'SELECT * FROM `'.$table.'` WHERE '.$id. ' = '."'". $this->escape($value) ."'";
+		return $this->query($query);
+	}
+
+	public function delete($table, $id = null, $value = null)
+	{
+		$query = 'DELETE FROM `'.$table.'` WHERE '.$id. ' = '."'". $this->escape($value) ."'";
+		return $this->query($query);
+	}
+
+	public function update($table, $values = null, $where = null)
+	{
+		$total = 1;
+		$count = count($values);
+		$query = 'UPDATE `'.$table.'` SET ';
+
+		foreach ($values as $key => $value)
+		{
+			if ($total != $count)
+				$query .= $key ." = '". $this->escape($value)."', ";
+			else
+				$query .= $key ." = '". $this->escape($value)."' ";
+
+			$total++;
+		}
+
+		$query .= 'WHERE ';
+
+		foreach ($where as $key => $value) 
+		{
+			$query .= $key. " = '".$this->escape($value)."'";
+		}
+
+		return $this->query($query);
+	}

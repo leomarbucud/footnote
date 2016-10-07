@@ -1,0 +1,8 @@
+$string = 'leomarbucud@yahoo.com';
+		if (preg_match("/^([\w\+_\-]+)(\.[\w\+_\-]+)*@([a-z0-9\-]+\.)+([a-z]{3})+(\.[a-z]{2,3})?$/ix", $string,$m))
+			echo "$string : This is a valid email address";
+		else
+			echo "$string : This is not a valid email address";
+
+		echo '<br />';
+		var_dump($m);

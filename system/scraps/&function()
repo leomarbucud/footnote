@@ -1,0 +1,18 @@
+function &abc($name='')
+	{
+		static $n = array();
+
+		if ($name != '')
+		{
+			$n[$name] = $name;
+		}
+		return $n;
+	}
+
+	$s =& abc('leomar');
+	abc('cherry');
+
+	//var_dump($s);
+
+	$b =& abc('bucud');
+	var_dump($b);

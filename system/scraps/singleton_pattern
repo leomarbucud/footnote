@@ -1,0 +1,2 @@
+$c =& Controller::get_instance();
+$c->ecc('asdasd');

@@ -1,0 +1,33 @@
+.bio {
+  >.cover-photo {
+    height: 150px;
+    background-size: cover;
+    background-position: center;
+  }
+  >.details {
+    padding-top: 0px;
+    text-align: center;
+    .avatar {
+      img {
+        border: 3px solid #fff;
+        border-radius: 100%;
+        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+        margin-bottom: 5px;
+        margin-top: -50px;
+        max-width: 100px;
+      }
+    }
+    ul.overview {
+      list-style: outside none none;
+      padding: 0;
+      li{
+        border-right: 1px solid #d4dbe0;
+        display: inline-block;
+        padding: 0 10px;
+      }
+      li:last-child {
+          border-right: 0 none;
+      }
+    }
+  }
+}

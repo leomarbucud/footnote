@@ -1,0 +1,7 @@
+$a = 'leomar';
+	ob_start();
+	echo '?><h2>Helllo</h2><?php echo \'aasdadas\'. $a;?>';
+	$output = ob_get_contents();
+	ob_end_flush();
+
+	echo eval($output);
