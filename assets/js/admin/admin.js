@@ -15,10 +15,8 @@
         self.userId = null;
         self.user = null;
     });
-
-
     function fetchUsers($http) {
-        return $http.get('/zero/admin/getusers')
+        return $http.get(BASE_URL + 'admin/getusers')
                     .then(function(response){
                         return response.data;
                     });
@@ -29,17 +27,12 @@
     function getUsers($http) {
 
         var model = this;
-
-
-
-        model.$onInit = function() {
-
-        };
+        model.$onInit = function() {};
 
         model.showEditModal = function(user) {
             var id = user.user_id;
             $http
-                .get('/zero/admin/getUserById/'+id)
+                .get(BASE_URL + 'admin/getUserById/'+id)
                 .then(function(response) {
                     model.onModalShow(
                         {$event :
@@ -63,7 +56,7 @@
         model.showEditCredentialsModal = function(user) {
             var id = user.user_id;
             $http
-                .get('/zero/admin/getUserById/'+id)
+                .get(BASE_URL + 'admin/getUserById/'+id)
                 .then(function(response) {
                     model.onModalShow(
                         {$event :
@@ -99,12 +92,12 @@
             updateUserInfo : '&',
             onUserUpdate : '&'
         },
-        templateUrl : '/zero/templates/editUserModal',
+        templateUrl : BASE_URL + 'templates/editUserModal',
         controllerAs : 'model',
         controller : function($http) {
             var model = this;
             model.updateUserInfo = function(id) {
-                $http.post('/zero/admin/updateUserInfo/' + id,
+                $http.post(BASE_URL + 'admin/updateUserInfo/' + id,
                     model.user
                 ).then(function (response)  {
                     if(response.data.status == 'success') {
@@ -139,12 +132,12 @@
             updateUserCredentials : '&',
             onUserUpdate : '&'
         },
-        templateUrl : '/zero/templates/editUserCredentialsModal',
+        templateUrl : BASE_URL + 'templates/editUserCredentialsModal',
         controllerAs : 'model',
         controller : function($http) {
             var model = this;
             model.updateUserCredentials = function(id) {
-                $http.post('/zero/admin/updateUserCredentials/' + id,
+                $http.post(BASE_URL + 'admin/updateUserCredentials/' + id,
                     model.user
                 ).then(function (response)  {
                     if(response.data.status == 'success') {
@@ -176,12 +169,12 @@
             user: '<',
             onUserDelete: '&'
         },
-        templateUrl : '/zero/templates/deleteUserModal',
+        templateUrl : BASE_URL + 'templates/deleteUserModal',
         controllerAs : 'model',
         controller: function($http) {
             var model = this;
             model.deleteUser = function(id) {
-                $http.post('/zero/admin/deleteUser/',
+                $http.post(BASE_URL + 'admin/deleteUser/',
                     model.user
                 ).then(function(response)  {
                     if(response.data.status == 'success') {
@@ -211,12 +204,12 @@
             onUserAdd: '&',
             addUser: '&'
         },
-        templateUrl: '/zero/templates/addUserModal',
+        templateUrl: BASE_URL + 'templates/addUserModal',
         controllerAs: 'model',
         controller: function($http) {
             var model = this;
             model.addUser = function() {
-                $http.post('/zero/admin/addUser/',
+                $http.post(BASE_URL + 'admin/addUser/',
                     model.user
                 ).then(function(response) {
                     if(response.data.status == 'success') {

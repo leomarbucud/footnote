@@ -7,6 +7,7 @@
 <script type="text/javascript" src="<?=BASE_URL?>assets/js/zoom.js"></script>
 <script type="text/javascript" src="<?=BASE_URL?>assets/js/library/angular-sanitize.js"></script>
 <script type="text/javascript" src="<?=BASE_URL?>assets/js/library/ng-file-upload-all.js"></script>
+<script type="text/javascript" src="<?=BASE_URL?>assets/js/custom/config.js"></script>
 <script type="text/javascript" src="<?=BASE_URL?>assets/js/custom/app.js"></script>
 <script type="text/javascript" src="<?=BASE_URL?>assets/js/custom/userController.js"></script>
 <script type="text/javascript" src="<?=BASE_URL?>assets/js/custom/postController.js"></script>

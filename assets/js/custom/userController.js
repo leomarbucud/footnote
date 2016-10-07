@@ -9,14 +9,14 @@
             {value: '1', text: 'Female'}
         ];
 
-        $http.get('/zero/account/getDetails')
+        $http.get(BASE_URL + 'account/getDetails')
              .then(function(response){
                  $scope.formDataUserInfo = response.data;
                  $scope.formDataUserInfo.gender = $scope.gender[$scope.formDataUserInfo.gender];
              });
 
         $scope.registerUser = function() {
-            $http.post('/zero/account/register',
+            $http.post(BASE_URL + 'account/register',
                 $scope.formDataRegUserInfo
             ).then(function (response)  {
                 $scope.userRegFeedback = response.data;
@@ -27,7 +27,7 @@
         $scope.updateUserInfo = function(form) {
 
             //console.log($scope.formDataUserInfo);
-            $http.post('/zero/account/update',
+            $http.post(BASE_URL + 'account/update',
                 $scope.formDataUserInfo
             ).then(function (response)  {
                 console.log(response.data.status);
@@ -43,7 +43,7 @@
         $scope.updateUserSecurity = function(form) {
             console.log($scope.formDataUserSecurity);
             //updateSecurity
-            $http.post('/zero/account/updateSecurity',
+            $http.post(BASE_URL + 'account/updateSecurity',
                 $scope.formDataUserSecurity
             ).then(function (response)  {
                 console.log(response.data.status);

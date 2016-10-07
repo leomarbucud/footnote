@@ -4,14 +4,14 @@
 
     var postController = function($scope, $http) {
 
-        $http.get('/zero/post/getAllPosts')
+        $http.get(BASE_URL + 'zero/post/getAllPosts')
             .then(function(response){
                 $scope.Posts = response.data;
                 //(5*252 + 4*124 + 3*40 + 2*29 + 1*33) / (252+124+40+29+33)
                 // console.log(response);
             });
         $scope.heart = function(index, rating) {
-            $http.get('/zero/post/heartPost/' + $scope.Posts[index].post_id + '/' + rating)
+            $http.get(BASE_URL + 'post/heartPost/' + $scope.Posts[index].post_id + '/' + rating)
                 .then(function(response){
                     if(response.data.hearts) {
                         $scope.Posts[index].hearts_1 = response.data.hearts.hearts_1;

@@ -2,7 +2,7 @@
 
 define('DEFAULT_ROUTE', 'welcome/index');
 
-define('BASE_URL', '/footnote/'); // put '' if publish to server
+define('BASE_URL', '/footnote/'); // put '/' if publish to server
 
 define('SITE_DOMAIN', 'http://localhost');
 
